@@ -1,5 +1,5 @@
 config.py
-venv
-.idea
-__pycache__
+venv/
+.idea/
+__pycache__/
 .gitignore
