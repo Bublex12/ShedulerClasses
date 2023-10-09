@@ -31,16 +31,10 @@ def get_range_result_in_sheet(range_in_sheet_for_day):
     # Суммируем вложенные массивы
     result = [sum(x, []) if isinstance(x[0], list) else x for x in zip(*aligned_arrays)]
 
-    non_empty_indices = [index+1 for index, item in enumerate(result[0]) if item != '']
+    non_empty_indices = [index for index, item in enumerate(result[0]) if item != '']
     result[0] = [item for item in result[0] if item != '']
     array = [result, non_empty_indices]
     return array
 
 
-class WeeklyLists(Enum):
-    MONDAY = get_range_result_in_sheet(Ranges.MONDAY.value)
-    TUESDAY = get_range_result_in_sheet(Ranges.TUESDAY.value)
-    WEDNESDAY = get_range_result_in_sheet(Ranges.WEDNESDAY.value)
-    THURSDAY = get_range_result_in_sheet(Ranges.THURSDAY.value)
-    FRIDAY = get_range_result_in_sheet(Ranges.FRIDAY.value)
-    SATURDAY = get_range_result_in_sheet(Ranges.SATURDAY.value)
+
